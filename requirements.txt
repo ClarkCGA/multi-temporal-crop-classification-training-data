@@ -1,0 +1,4 @@
+numpy
+matplotlib
+fiona==1.8.20
+rioxarray==0.3.1
