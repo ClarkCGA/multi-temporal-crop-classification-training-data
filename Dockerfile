@@ -9,7 +9,7 @@ RUN pip3 install rasterio==1.1.3 rio-cogeo==1.1.10 --no-binary rasterio
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install jupyterlab
 COPY ./requirements.txt ./requirements.txt
-# RUN pip3 install -r ./requirements.txt
+RUN pip3 install -r ./requirements.txt
 
 RUN git clone https://github.com/NASA-IMPACT/hls-hdf_to_cog
 RUN mkdir ./data
