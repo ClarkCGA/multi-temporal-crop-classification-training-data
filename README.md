@@ -20,6 +20,3 @@ docker run -it -v <local_path_HLS_data_folder>:/data/ -v "$(pwd)":/cdl_training_
 ```
 
 This will launch a jupyterlab server and by pasting the server url in the browser you can run any code. 
-
-
-docker run --memory="6g" --memory-swap="20g" -v /Users/hamed/Downloads/temp/:/data/ -v "$(pwd)":/cdl_training_data/ -p 8888:8888 cdl
