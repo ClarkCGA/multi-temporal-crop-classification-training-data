@@ -3,6 +3,6 @@
 "name": "cdl_aoi",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::5070" } },
 "features": [
-{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -281415, 1533615 ], [ 558585, 1533615 ], [ 558585, 693615 ], [ -281415, 693615 ], [ -281415, 1533615 ] ] ] ] } }
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -281415, 1533615 ], [ 256185, 1533615 ], [ 256185, 996015 ], [ -281415, 996015 ], [ -281415, 1533615 ] ] ] ] } }
 ]
 }
