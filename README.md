@@ -20,3 +20,6 @@ docker run -it -v <local_path_HLS_data_folder>:/data/ -v "$(pwd)":/cdl_training_
 ```
 
 This will launch a jupyterlab server and by pasting the server url in the browser you can run any code. 
+
+### Notes
+The `reproject.ipynb` notebook requires the file `data/2022_30m_cdls_clipped.tif` and this should be generated using the code in `clip.ipynb`. You need to include the raw CDL data for this code. The raw data can be downloaded from [here](https://www.nass.usda.gov/Research_and_Science/Cropland/Release) (the 2022 version).
