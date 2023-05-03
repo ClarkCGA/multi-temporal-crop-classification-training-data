@@ -6,6 +6,7 @@ ENV LANG=C.UTF-8
 RUN apt-get update
 RUN apt-get install sudo  python3-pip python3-venv git -y
 RUN pip3 install rasterio==1.1.3 rio-cogeo==1.1.10 --no-binary rasterio
+RUN pip3 install git+https://github.com/benmack/nasa_hls.git
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install jupyterlab
 COPY ./requirements.txt ./requirements.txt
