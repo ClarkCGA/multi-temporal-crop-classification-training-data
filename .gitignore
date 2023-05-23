@@ -1,0 +1,5 @@
+# Ignore raw CDL data
+/raw_cdl
+.DS_Store
+.ipynb_checkpoints/
+data/.DS_Store
