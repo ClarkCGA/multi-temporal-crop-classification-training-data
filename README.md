@@ -7,6 +7,8 @@ The "workflow.ipyng" notebook should be able to be run from start to finish. The
 
 The "calc_mean_sd.ipynb" notebook calculates per band mean and sd for HLS bands. (both for each date separately, and when combining bands across dates). It also calculates CDL per-class counts across all chips. 
 
+***PLEASE NOTE: YOU MUST MANUALLY REPLACE 'FMASK', with 'QA' in the 'hls_hdf_to_cog.py' script, under S30_BAND_NAMES and S30_DEBUG_BAND_NAMES. This script is located in /hls-hdf_to_cog/hls_hdf_to_cog/***
+
 ### Assumptions
 
 Here are the 5 steps for chip generation in "workflow.ipynb".
