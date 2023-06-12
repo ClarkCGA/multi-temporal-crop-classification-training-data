@@ -25,10 +25,11 @@ Also, when first determining which HLS tiles to use in the pipeline, please chec
 
 Docker should be installed in your machine. 
 
-The `workflow.ipynb` notebook requires 3 external files.
+The `workflow.ipynb` notebook requires 4 external files.
 - the file `data/2021_30m_cdls_clipped.tif` and this should be generated using the code in `clip.ipynb`. You need to include the raw CDL data for this code. The raw data can be downloaded from [here](https://www.nass.usda.gov/Research_and_Science/Cropland/Release) (the 2021 version).
 - the file "chip_bbox.geojson" which contains chip boundaries (in CDL crs), and attributes for chip centroids (in long, lat coordinates). The chip centroids are needed to associate each chip to an HLS tile.
 - the file "sentinel_tile_grid.kml" for associating chips to HLS tiles.
+- the file "chip_freq.csv" for reclassing the original ~200 CDL values to 13 values (e.g. grass, forest, corn, cotton...)
 
 ### Instructionss
 
