@@ -5,7 +5,6 @@ ENV LANG=C.UTF-8
 
 RUN apt-get update
 RUN apt-get install sudo python3-pip python3-venv git -y
-# RUN pip3 install fiona==1.9.0
 RUN pip3 install rasterio==1.3.8 rio-cogeo --no-binary rasterio
 RUN pip3 install git+https://github.com/benmack/nasa_hls.git
 RUN python3 -m pip install -U pip
