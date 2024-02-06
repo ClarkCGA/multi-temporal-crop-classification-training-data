@@ -7,8 +7,6 @@ The "workflow.ipyng" notebook should be able to be run from start to finish. The
 
 The "calc_mean_sd.ipynb" notebook calculates per band mean and sd for HLS bands. (both for each date separately, and when combining bands across dates). It also calculates CDL per-class counts across all chips. 
 
-***PLEASE NOTE: YOU MUST MANUALLY REPLACE 'FMASK', with 'QA' in the 'hls_hdf_to_cog.py' script, under S30_BAND_NAMES and S30_DEBUG_BAND_NAMES. This script is located in /hls-hdf_to_cog/hls_hdf_to_cog/***
-
 ### Assumptions
 
 Here are the 5 steps for chip generation in "workflow.ipynb".
@@ -21,6 +19,23 @@ Here are the 5 steps for chip generation in "workflow.ipynb".
 Also, when first determining which HLS tiles to use in the pipeline, please check that there are erroneous HLS tiles (see step 0a in "workflow.ipynb". In our use case, we found that certain chips in southern CONUS were associated with HLS tile "01SBU", which is wrong.
 
 
+## Build/Run Docker Environment:
+<br />
+
+Build the Docker image as following:
+```
+docker build -t cdl-data .
+```
+
+Run the Docker as following (this should run after changing folder to the current folder of the repo):
+```
+docker run -it -v <local_path_HLS_data_folder>:/data/ -v "$(pwd)":/cdl_training_data/ -p 8888:8888 cdl-data
+```
+The IP to jupyterlab would be displayed automatically.
+
+*Notice: If running from EC2 you should replace the ip address by the public DNS of the EC2*
+<br />
+
 ### Requirements
 
 Docker should be installed in your machine. 
@@ -31,19 +46,3 @@ The `workflow.ipynb` notebook requires 4 external files.
 - the file "sentinel_tile_grid.kml" for associating chips to HLS tiles.
 - the file "chip_freq.csv" for reclassing the original ~200 CDL values to 13 values (e.g. grass, forest, corn, cotton...)
 
-### Instructionss
-
-Build the Docker image as following:
-```
-docker build -t cdl .
-```
-
-Run the Docker image as a container using the following command. You need to mount the local folder that contains (or will contain) the HLS data to the container as well as the folder than contains this repo. The following assumes you are running the `docker run` command inside this folder.
-
-```
-docker run -it -v <local_path_HLS_data_folder>:/data/ -v "$(pwd)":/cdl_training_data/ -p 8888:8888 cdl
-```
-
-This will launch a jupyterlab server and by pasting the server url in the browser you can run any code. 
-
-### Notes
