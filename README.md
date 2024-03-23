@@ -2,7 +2,7 @@
 
 This repository contains the pipeline for generating a training dataset for land cover and crop type segmentation using USDA CDL data. The dataset will curate labels from USDA CDL data and input imagery from NASA HLS dataset (three cloud free scenes across the growing season). The dataset is published as part of the [Prithvi 100M](https://arxiv.org/abs/2310.18660) foundation model release on [HuggingFace](https://huggingface.co/datasets/ibm-nasa-geospatial/multi-temporal-crop-classification) and [Source Cooperative](https://beta.source.coop/repositories/clarkcga/multi-temporal-crop-classification/) with an open-access license. 
 
-### Repo Structure
+## Repo Structure
 <br />
 
 The main notebook `workflow.ipynb`, runs through 5 main steps, tracking the completion of each step at the HLS tile level. The completion of these steps is tracked in `tile_tracker.csv`. Chip level statistics are tracked in `chip_tracker.csv`.
@@ -11,9 +11,8 @@ The `calc_mean_sd.ipynb` notebook calculates per band mean and standard deviatio
 
 <br />
 
-### Assumptions
+## Assumptions
 <br />
-
 
 Here are the 5 steps for chip generation in `workflow.ipynb`.
 - Download HLS files in HDF format (downloaded for specified months, for all HLS tiles with chips)
@@ -26,7 +25,7 @@ Also, when first determining which HLS tiles to use in the pipeline, please chec
 
 <br />
 
-## Build/Run Docker Environment:
+## Build/Run Docker Environment
 <br />
 
 Build the Docker image as following:
@@ -43,15 +42,14 @@ The IP to jupyterlab would be displayed automatically.
 *Notice: If running from EC2 you should replace the ip address by the public DNS of the EC2*
 <br />
 
-### Requirements
+## Requirements
 <br />
 
 Docker should be installed in your machine. 
 
 The `workflow.ipynb` notebook requires 4 external files.
-- the file `data/2021_30m_cdls_clipped.tif` and this should be generated using the code in `clip.ipynb`. You need to include the raw CDL data for this code. The raw data can be downloaded from [here](https://www.nass.usda.gov/Research_and_Science/Cropland/Release) (the 2021 version).
-- the file `chip_bbox.geojson` which contains chip boundaries (in CDL crs), and attributes for chip centroids (in long, lat coordinates). The chip centroids are needed to associate each chip to an HLS tile.
-- the file `sentinel_tile_grid.kml` for associating chips to HLS tiles.
-- the file `chip_freq.csv` for reclassifying the original ~200 CDL values to 13 values (e.g. grass, forest, corn, cotton...)
-
+- the file `data/2022_30m_cdls_clipped.tif` and this should be generated using the code in `clip.ipynb`. You need to include the raw CDL data for this code. The raw data can be downloaded from [here](https://www.nass.usda.gov/Research_and_Science/Cropland/Release) (the 2022 version).
+- the file `data/chip_bbox.geojson` which contains chip boundaries (in CDL crs), and attributes for chip centroids (in long, lat coordinates). The chip centroids are needed to associate each chip to an HLS tile. 
+- the file `data/sentinel_tile_grid.kml` for associating chips to HLS tiles.
+- the file `data/chip_freq.csv` for reclassifying the original ~200 CDL values to 13 values (e.g. grass, forest, corn, cotton...)
 <br />
